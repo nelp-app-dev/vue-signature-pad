@@ -64,10 +64,10 @@ export default defineComponent({
   mounted() {
     const { options } = this;
     const canvas = this.$refs.signaturePadCanvas;
-    const signaturePad = new SignaturePad(canvas, {
-      ...DEFAULT_OPTIONS,
-      ...options
-    });
+
+    const nelpOptions = Object.assign({}, DEFAULT_OPTIONS, options);
+
+    const signaturePad = new SignaturePad(canvas, nelpOptions);
     this.signaturePad = signaturePad;
 
     if (options.resizeHandler) {
